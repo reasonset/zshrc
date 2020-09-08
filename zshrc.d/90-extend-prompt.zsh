@@ -5,7 +5,7 @@ if [[ -n $_ZSH_PROMPT && -f ${ZDORDIR:-$HOME}/.zsh.extend.d/$_ZSH_PROMPT ]]
 then
   source ${ZDORDIR:-$HOME}/.zsh.extend.d/$_ZSH_PROMPT
 else
-  if [[ -f $_ZSH_CONFIG_P10K ]]
+  if [[ -n $_ZSH_CONFIG_P10K && -f $_ZSH_CONFIG_P10K ]]
   then
     prompt off
     source $_ZSH_CONFIG_P10K
@@ -16,5 +16,9 @@ else
     then
       typeset -g POWERLEVEL9K_VCS_BACKENDS=(hg git)
     fi
+  elif [[ -n $_ZSH_CONFIG_POWERLINE && -f $_ZSH_CONFIG_POWERLINE ]]
+  then
+    prompt off
+    source $_ZSH_CONFIG_POWERLINE
   fi
 fi
