@@ -1,0 +1,18 @@
+# -*- mode: zsh; -*-
+# vi: set ft=zsh
+
+typeset i
+
+# User's local settings
+for i in ${ZDOTDIR:-$HOME}/.zshrc.d/*(.N)
+do
+  source $i
+done
+
+# User's site local settings
+for i in ${ZDOTDIR:-$HOME}/.zshrc.local.d/*(.N)
+do
+  source $i
+done
+
+unset i
